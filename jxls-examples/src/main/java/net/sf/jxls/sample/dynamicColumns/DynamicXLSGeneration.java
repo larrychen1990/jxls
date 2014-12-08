@@ -16,8 +16,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
  */
 public class DynamicXLSGeneration {
 
-    private static String templateFileName = "examples/templates/ex_temp.xls";
-    private static String destFileName = "build/ex_output.xls";
+    private static String templateFileName = "/resources/templates/ex_temp.xls";
+    private static String destFileName = "./build/ex_output.xls";
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws ParsePropertyException, IOException, InvalidFormatException {

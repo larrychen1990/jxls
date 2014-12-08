@@ -1,7 +1,10 @@
 package net.sf.jxls.sample.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Sample Department bean to demostrate main excel export features
@@ -10,13 +13,17 @@ import java.util.List;
 public class Department {
     private String name;
     private Employee chief;
-    private List staff = new ArrayList();
+    private List<Employee> staff = new ArrayList<Employee>();
+    
+    //test loop map in tempalte
+    //${department.employee.name}
+    private Map<Integer,Employee> employees=new HashMap<Integer,Employee>();
 
     public Department(String name) {
         this.name = name;
     }
 
-    public Department(String name, Employee chief, List staff) {
+    public Department(String name, Employee chief, List<Employee> staff) {
         this.name = name;
         this.chief = chief;
         this.staff = staff;
@@ -33,8 +40,12 @@ public class Department {
         return departments;
     }
 
-    public void addEmployee(Employee employee) {
-        staff.add(employee);
+    public void addEmployeeByNo(Integer i,Employee employee){
+    	this.employees.put(i, employee);
+    }
+    
+    public void addStaff(Employee employee) {
+        this.staff.add(employee);
     }
 
     public String getName() {
@@ -53,11 +64,27 @@ public class Department {
         this.chief = chief;
     }
 
-    public List getStaff() {
+    public List<Employee> getStaff() {
         return staff;
     }
 
-    public void setStaff(List staff) {
+    public void setStaff(List<Employee> staff) {
         this.staff = staff;
     }
+
+
+	public Map<Integer, Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(Map<Integer, Employee> employees) {
+		this.employees = employees;
+	}
+
+	 //${department.employee.name}
+	public Collection<Employee> getEmployee() {
+		return this.employees.values();
+	}
+    
+    
 }

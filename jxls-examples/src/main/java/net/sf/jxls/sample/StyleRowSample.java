@@ -36,11 +36,11 @@ public class StyleRowSample {
         Date d4 = calendar.getTime();
         calendar.set(1978, 8, 17);
         Date d5 = calendar.getTime();
-        department.addEmployee(new Employee("Elsa", 28, 1500, 0.15, d1));
-        department.addEmployee(new Employee("Oleg", 32, 2300, 0.25, d3));
-        department.addEmployee(new Employee("Neil", 34, 2500, 0.00, d4));
-        department.addEmployee(new Employee("Maria", 34, 1700, 0.15, d5));
-        department.addEmployee(new Employee("John", 35, 2800, 0.20, d2));
+        department.addStaff(new Employee("Elsa", 28, 1500, 0.15, d1));
+        department.addStaff(new Employee("Oleg", 32, 2300, 0.25, d3));
+        department.addStaff(new Employee("Neil", 34, 2500, 0.00, d4));
+        department.addStaff(new Employee("Maria", 34, 1700, 0.15, d5));
+        department.addStaff(new Employee("John", 35, 2800, 0.20, d2));
         Map beans = new HashMap();
         beans.put("department", department);
         XLSTransformer transformer = new XLSTransformer();

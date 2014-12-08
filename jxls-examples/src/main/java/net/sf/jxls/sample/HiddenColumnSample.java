@@ -17,8 +17,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
  * @author Leonid Vysochyn
  */
 public class HiddenColumnSample {
-    private static String templateFileName = "examples/templates/department.xls";
-    private static String destFileName = "build/hiddencolumn_output.xls";
+    private static String templateFileName = "./src/main/resources/templates/department.xls";
+    private static String destFileName = "./src/main/resources/build/hiddencolumn_output.xls";
 
     public static void main(String[] args) throws IOException, ParsePropertyException, InvalidFormatException {
         if (args.length >= 2) {
@@ -39,16 +39,23 @@ public class HiddenColumnSample {
         Date d5 = calendar.getTime();
         Employee chief = new Employee("Derek", 35, 3000, 0.30, d1);
         department.setChief(chief);
-        department.addEmployee(new Employee("Elsa", 28, 1500, 0.15, d2));
-        department.addEmployee(new Employee("Oleg", 32, 2300, 0.25, d3));
-        department.addEmployee(new Employee("Neil", 34, 2500, 0.00, d4));
-        department.addEmployee(new Employee("Maria", 34, 1700, 0.15, d5));
-        department.addEmployee(new Employee("John", 35, 2800, 0.20, d2));
-        Map beans = new HashMap();
+        department.addStaff(new Employee("Elsa", 28, 1500, 0.15, d2));
+        department.addStaff(new Employee("Oleg", 32, 2300, 0.25, d3));
+        department.addStaff(new Employee("Neil", 34, 2500, 0.00, d4));
+        department.addStaff(new Employee("Maria", 34, 1700, 0.15, d5));
+        department.addStaff(new Employee("John", 35, 2800, 0.20, d2));
+        
+        department.addEmployeeByNo(1, new Employee("Terry", 28, 1600, 0.15, d2));
+        department.addEmployeeByNo(2, new Employee("Larry", 23, 1500, 0.20, d3));
+        department.addEmployeeByNo(3, new Employee("Marry", 24, 1800, 0.34, d4));
+        
+        
+        Map<String,Object> beans = new HashMap<String,Object>();
         beans.put("department", department);
         XLSTransformer transformer = new XLSTransformer();
-        transformer.setColumnPropertyNamesToHide(new String[]{"age"});
-        //transformer.setColumnsToHide(new short[]{1});
+        
+        //department.staff   per staff of one department
+        //used in special loop cases of collection & map
         transformer.groupCollection("department.staff");
         transformer.transformXLS(templateFileName, beans, destFileName);
     }

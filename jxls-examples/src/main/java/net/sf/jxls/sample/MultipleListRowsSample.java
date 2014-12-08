@@ -16,8 +16,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
  * @author Leonid Vysochyn
  */
 public class MultipleListRowsSample {
-    private static String templateFileName = "examples/templates/multiplelistrows.xls";
-    private static String destFileName = "build/multiplelistrows_output.xls";
+    private static String templateFileName = "./src/main/resources/templates/multiplelistrows.xls";
+    private static String destFileName = "./src/main/resources/build/multiplelistrows_output.xls";
 
     public static void main(String[] args) throws IOException, ParsePropertyException, InvalidFormatException {
         if (args.length >= 2) {
@@ -39,15 +39,15 @@ public class MultipleListRowsSample {
         Employee chief = new Employee("Derek", 35, 3000, 0.30, d1);
         department.setChief(chief);
         Employee elsa = new Employee("Elsa", 28, 1500, 0.15, d2);
-        department.addEmployee(elsa);
+        department.addStaff(elsa);
         Employee oleg = new Employee("Oleg", 32, 2300, 0.25, d3);
-        department.addEmployee(oleg);
+        department.addStaff(oleg);
         Employee neil = new Employee("Neil", 34, 2500, 0.00, d4);
-        department.addEmployee(neil);
+        department.addStaff(neil);
         Employee maria = new Employee("Maria", 34, 1700, 0.15, d5);
-        department.addEmployee(maria);
+        department.addStaff(maria);
         Employee john = new Employee("John", 35, 2800, 0.20, d2);
-        department.addEmployee(john);
+        department.addStaff(john);
         maria.setSuperior(oleg);
         oleg.setSuperior(john);
         neil.setSuperior(john);

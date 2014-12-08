@@ -27,24 +27,24 @@ public class AdjacentListsSample {
         Employee chief = new Employee("Derek", 35, 3000, 0.30);
         depIT.setChief(chief);
         Employee elsa = new Employee("Elsa", 28, 1500, 0.15);
-        depIT.addEmployee(elsa);
+        depIT.addStaff(elsa);
         Employee oleg = new Employee("Oleg", 32, 2300, 0.25);
-        depIT.addEmployee(oleg);
+        depIT.addStaff(oleg);
         Employee neil = new Employee("Neil", 34, 2500, 0.00);
-        depIT.addEmployee(neil);
+        depIT.addStaff(neil);
         Employee maria = new Employee("Maria", 34, 1700, 0.15);
-        depIT.addEmployee(maria);
+        depIT.addStaff(maria);
         Employee john = new Employee("John", 35, 2800, 0.20);
-        depIT.addEmployee(john);
+        depIT.addStaff(john);
 
         Department depHR = new Department("HR");
 
         Employee natali = new Employee("Natali", 25, 1200, 0.1);
-        depHR.addEmployee( natali );
+        depHR.addStaff( natali );
         Employee helen = new Employee("Helen", 27, 1100, 0.20);
-        depHR.addEmployee(helen);
+        depHR.addStaff(helen);
         Employee olga = new Employee("Olga", 24, 1150, 0.00);
-        depHR.addEmployee(olga);
+        depHR.addStaff(olga);
 
         Map beans = new HashMap();
         beans.put("depIT", depIT);
